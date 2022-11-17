@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script lang="JavaScript">
+        function showPic(pic){
+            if(pic == 1){
+                
+                var img = document.getElementById('resultImg');
+                img.src = "rock.png";
+                img.style = "display:block";
+
+            }else if(pic == 2){
+
+                var img = document.getElementById('resultImg');
+                img.src = "paper.png";
+                img.style = "display:block";
+
+            }else if(pic == 3){
+
+                var img = document.getElementById('resultImg');
+                img.src = "scissors.png";
+                img.style = "display:block";
+
+            }else alert("SOMETHING WENT WRONG!");
+        }
+
+        function win(){
+            //alert("WIN!");
+            document.getElementById("resultText").innerHTML = "Nyertél!";
+            var counter = document.getElementById("wonCount").innerHTML*1;
+            counter++;
+            document.getElementById("wonCount").innerHTML = counter;
+        }
+
+        function lose(){
+            //alert("LOSE!");
+            document.getElementById("resultText").innerHTML = "Vesztettél!";
+            var counter = document.getElementById("lostCount").innerHTML*1;
+            counter++;
+            document.getElementById("lostCount").innerHTML = counter;
+        }
+
+        function draw(){
+            //alert("DRAW!");
+            document.getElementById("resultText").innerHTML = "Döntetlen!";
+            var counter = document.getElementById("drawCount").innerHTML*1;
+            counter++;
+            document.getElementById("drawCount").innerHTML = counter;
+        }
+
+        function play(ans){
+            //1 = rock 2 = paper 3 = scissors
+            var opp = Math.floor(Math.random() * 3) + 1;
+            showPic(opp);
+            if(ans == opp){
+                draw();
+            }else if(ans == 1){
+                //Rock chosen
+                if(opp == 2){
+                    //Rock vs Paper
+                    lose();
+                }else{
+                    //Rock vs Scissors
+                    win();
+                }
+            }else if(ans == 2){
+                //Paper chosen
+                if(opp == 1){
+                    //Paper vs Rock
+                    win();
+                }else{
+                    //Paper vs Scissors
+                    lose();
+                }
+            }else if(ans == 3){
+                //Scissors chosen
+                if(opp == 1){
+                    //Scissors vs Rock
+                    lose();
+                }else{
+                    //Scissors vs Paper
+                    win();
+                }
+            }else alert("SOMETHING WENT WRONG!");
+        }
+
+        function restartGame(){
+
+            document.getElementById("wonCount").innerHTML = 0;
+            document.getElementById("lostCount").innerHTML = 0;
+            document.getElementById("drawCount").innerHTML = 0;
+            document.getElementById("resultText").innerHTML = "";
+            var img = document.getElementById('resultImg');
+            img.style = "display:none";
+    
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Rock-Paper-Scissors Game</title>
+</head>
+<body>
+    <div class="container">
+        <div class="counter">
+            <form>
+                <p>Nyert: <span id="wonCount">0</span></p>
+                <p>Döntetlen: <span id="drawCount">0</span></p>
+                <p>Vesztett: <span id="lostCount">0</span></p>
+            </form>
+        </div>
+
+        <div class="button_container">
+            <div class="button">
+                <input type="image" src="rock.png" value="rock" onclick="play(1)" height="200" width="200">
+            </div>
+    
+            <div class="button">
+                <input type="image" src="paper.png"  value="paper" onclick="play(2)" height="200" width="200">
+            </div>
+    
+            <div class="button">
+                <input type="image" src="scissors.png" value="scissors" onclick="play(3)" height="200" width="200">
+            </div>
+        </div>
+
+        <div class="result_text">
+            <p id="resultText"></p>
+        </div>
+        
+        <div class="result_image">
+            <img style="display: none" id="resultImg" height="200" width="200">
+        </div>
+
+        <div class="restart_button">
+            <input class = "rbutton" type="button" value="Új játék" onclick="restartGame()">
+        </div>
+    </div>
+</body>
+</html>

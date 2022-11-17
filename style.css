@@ -1,0 +1,71 @@
+body{
+    background: burlywood;
+}
+
+div.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div.button_container{
+    display: flex;
+    justify-content: center;
+}
+
+div.button_container>div{
+    margin: 2em;
+    padding: .5em;
+    border-radius: 1em;
+}
+
+div.button_container>div:hover{
+    border: 100px, solid;
+}
+
+p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+}
+
+div.result_text{
+    display: flex;
+    justify-content: center;
+}
+
+div.result_text>p{
+    font-size: xx-large;
+}
+
+div.result_image{
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+}
+
+div.restart_button{
+    display: flex;
+    justify-content: center;
+}
+
+div.button:hover{
+    background-color: darkgrey;
+}
+
+div.button:active{
+    background-color: grey;
+}
+
+.rbutton{
+    background-color: #fff;
+    font-size: 2em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.rbutton:hover{
+    background-color: darkgrey;
+}
+
+.rbutton:active{
+    background-color: grey;
+}
